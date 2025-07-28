@@ -114,7 +114,7 @@ export default function ConfirmationPage() {
                 className="object-contain opacity-60"
               />
             </div>
-            <p className="text-xs text-gray-500">COMPSSA Voting System © 2024</p>
+            <p className="text-xs text-gray-500">COMPSSA Voting System © 2025</p>
             <p className="text-xs text-gray-400">Accra Technical University</p>
           </div>
         </CardContent>

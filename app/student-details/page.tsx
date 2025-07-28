@@ -126,7 +126,7 @@ export default function StudentDetailsPage() {
       formData.name &&
       formData.phone &&
       formData.email &&
-      !emailError && // Only check that there's no email error
+      !emailError && 
       formData.programme &&
       formData.level &&
       formData.degree_type &&
@@ -198,7 +198,7 @@ export default function StudentDetailsPage() {
                   <Input
                     id="email"
                     type="email"
-                    placeholder="your.email@student.edu.gh"
+                    placeholder="your.email@gmail.com"
                     value={formData.email}
                     onChange={(e) => handleEmailChange(e.target.value)}
                     className={`${emailError ? "border-red-500 focus:border-red-500 focus:ring-red-500" : ""}`}
@@ -216,7 +216,7 @@ export default function StudentDetailsPage() {
                     <span>{emailError}</span>
                   </p>
                 )}
-                <p className="text-xs text-gray-500">Use your official student email address</p>
+                <p className="text-xs text-gray-500">Use your email address</p>
               </div>
 
               {/* Programme */}
