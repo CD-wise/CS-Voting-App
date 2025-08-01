@@ -179,9 +179,9 @@ export default function VotingPage() {
 
         {/* Voting Tabs */}
         <Tabs value={activeTab} onValueChange={setActiveTab} className="space-y-4">
-          <TabsList className="flex overflow-x-auto space-x-2 w-full lg:grid lg:grid-cols-8">
+          <TabsList className="flex overflow-x-auto space-x-2 w-full lg:grid lg:grid-cols-8 lg:space-x-0">
             {categories.map((category) => (
-              <TabsTrigger key={category.id} value={category.id.toString()} className="text-xs relative">
+              <TabsTrigger key={category.id} value={category.id.toString()} className="text-xs relative min-w-[100px]">
                 {category.name}
                 {hasVotedInCategory(category.id) && (
                   <Check className="w-3 h-3 text-green-600 absolute -top-1 -right-1" />
