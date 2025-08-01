@@ -51,6 +51,14 @@ export default function VotingPage() {
     }
   }, [categories, activeTab])
 
+  // Scroll active tab into view on mount and when activeTab changes
+  useEffect(() => {
+    const activeTabButton = document.querySelector(`[data-tab-trigger="${activeTab}"]`)
+    if (activeTabButton) {
+      activeTabButton.scrollIntoView({ behavior: "smooth", inline: "center" })
+    }
+  }, [activeTab])
+
   const loadVotingData = async (studentId: string) => {
     try {
       const [votingData, existingVotes] = await Promise.all([getVotingData(), getStudentVotes(studentId)])
@@ -181,7 +189,12 @@ export default function VotingPage() {
         <Tabs value={activeTab} onValueChange={setActiveTab} className="space-y-4">
           <TabsList className="flex overflow-x-auto space-x-2 w-full lg:grid lg:grid-cols-8 lg:space-x-0">
             {categories.map((category) => (
-              <TabsTrigger key={category.id} value={category.id.toString()} className="text-xs relative min-w-[100px]">
+              <TabsTrigger
+                key={category.id}
+                value={category.id.toString()}
+                className="text-xs relative min-w-[100px]"
+                data-tab-trigger={category.id.toString()}
+              >
                 {category.name}
                 {hasVotedInCategory(category.id) && (
                   <Check className="w-3 h-3 text-green-600 absolute -top-1 -right-1" />
